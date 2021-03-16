@@ -1,5 +1,5 @@
 public class NoCountryException extends Exception {
-    public NoCountryException(String errorMessage) {
+    public NoCountryException(final String errorMessage) {
         super(errorMessage);
     }
 }

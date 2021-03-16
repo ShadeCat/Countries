@@ -14,8 +14,8 @@ public class CountryIsOpen {
                 break;
             }
             try {
-                CountrySelector.printCountryIsOpen(userInput);
-            } catch (NoCountryException e) {
+                CountrySelector.findByName(userInput);
+            } catch (NoCountryException NullPointerException) {
                 System.out.println("Страна " + userInput + " не обнаружена.");
             }
         }

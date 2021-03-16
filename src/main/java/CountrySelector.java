@@ -1,15 +1,14 @@
 public class CountrySelector {
-    public static void printCountryIsOpen(final String countryName) throws NoCountryException {
-        findByName(countryName);
-    }
 
-
-    private static void findByName(final String countryName) throws NoCountryException {
+    public static void findByName(final String countryName) throws NoCountryException, NullPointerException {
         String upperName = countryName.toUpperCase();
+        Country selectedCountry;
         try {
-            System.out.println(getsOpenMessage(Country.valueOf(upperName)));
-        } catch (IllegalArgumentException e1) {
-            System.out.println("Страна" + countryName + " не найдена. Ищу по русскому названию");
+            selectedCountry = Country.valueOf(upperName);
+        } catch (IllegalArgumentException e) {
+            selectedCountry = null;
+        }
+        if (selectedCountry == null) {
             findByRussianName(countryName);
         }
     }
