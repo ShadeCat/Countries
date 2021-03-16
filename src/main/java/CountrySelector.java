@@ -1,10 +1,10 @@
 public class CountrySelector {
-    public void printCountryIsOpen(String countryName) throws NoCountryException {
+    public static void printCountryIsOpen(final String countryName) throws NoCountryException {
         findByName(countryName);
     }
 
 
-    private void findByName(String countryName) throws NoCountryException {
+    private static void findByName(final String countryName) throws NoCountryException {
         String upperName = countryName.toUpperCase();
         try {
             System.out.println(getsOpenMessage(Country.valueOf(upperName)));
@@ -14,13 +14,13 @@ public class CountrySelector {
         }
     }
 
-    private void findByRussianName(String countryName) throws NoCountryException {
+    private static void findByRussianName(final String countryName) throws NoCountryException {
         System.out.println(getsOpenMessage(Country.getByRuName(countryName)));
     }
 
-    private String getsOpenMessage(Country country){
+    private static String getsOpenMessage(final Country country) {
         String isOpenMessage = "Страна " + country;
-        if (country.isOpen){
+        if (country.getIsOpen()) {
             isOpenMessage += " открыта";
         } else {
             isOpenMessage += " закрыта";
